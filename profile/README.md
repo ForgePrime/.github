@@ -175,9 +175,9 @@ Invoked automatically via `/discover` or manually as needed. All findings flow i
 
 ## Repositories
 
-| Repository | Description | Status |
-|:-----------|:------------|:------:|
-| [**forge**](https://github.com/ForgePrime/forge) | Core orchestrator — pipeline, decisions, changes, gates, learning | Active |
+| | Repository | Description | Status |
+|:-:|:-----------|:------------|:------:|
+| <a href="https://github.com/ForgePrime/forge"><img src="https://raw.githubusercontent.com/ForgePrime/forge/main/img/ico.png" alt="Forge" width="28"/></a> | [**forge**](https://github.com/ForgePrime/forge) | Core orchestrator — pipeline, decisions, changes, gates, learning | Active |
 
 ---
 
