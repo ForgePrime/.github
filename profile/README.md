@@ -1,18 +1,16 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ForgePrime/.github/main/assets/forge-banner.png" alt="ForgePrime" width="800"/>
+  <img src="https://raw.githubusercontent.com/ForgePrime/.github/main/assets/forge-banner.png" alt="ForgePrime" width="720"/>
 </p>
-
-<h1 align="center">ForgePrime</h1>
 
 <p align="center">
   <strong>Structured AI Development with Full Traceability</strong><br/>
-  Every code change planned, tracked, reasoned about, and auditable.
+  Every code change — planned, tracked, reasoned about, and auditable.
 </p>
 
 <p align="center">
-  <a href="https://github.com/ForgePrime/forge"><img src="https://img.shields.io/badge/forge-core-blue?style=for-the-badge&logo=github" alt="Forge Core"/></a>
-  <a href="https://github.com/ForgePrime/forge/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge" alt="License"/></a>
-  <a href="https://github.com/ForgePrime/forge/stargazers"><img src="https://img.shields.io/github/stars/ForgePrime/forge?style=for-the-badge&color=yellow" alt="Stars"/></a>
+  <a href="https://github.com/ForgePrime/forge"><img src="https://img.shields.io/badge/forge-core_engine-2D3748?style=for-the-badge&logo=github" alt="Forge Core"/></a>&nbsp;
+  <a href="https://github.com/ForgePrime/forge/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-C8956C?style=for-the-badge" alt="License"/></a>&nbsp;
+  <a href="https://github.com/ForgePrime/forge/stargazers"><img src="https://img.shields.io/github/stars/ForgePrime/forge?style=for-the-badge&color=2D3748" alt="Stars"/></a>
 </p>
 
 ---
@@ -23,13 +21,13 @@ AI coding assistants generate code fast — but without structure. There is no a
 
 ## Our Solution
 
-**Forge** is a structured change orchestrator for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). It wraps AI-driven development in a rigorous process:
+**Forge** is a structured change orchestrator for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). It wraps AI-driven development in a rigorous, traceable process:
 
 ```
-Idea  →  Discover  →  Plan  →  Execute  →  Validate  →  Record
+Idea  →  Discover  →  Plan  →  Guide  →  Execute  →  Validate  →  Learn
 ```
 
-Every step produces traceable artifacts — decisions with provenance, changes with reasoning traces, and validation gates that enforce quality before completion.
+Every step produces auditable artifacts — decisions with provenance, changes with reasoning traces, project guidelines that keep AI aligned with your standards, and validation gates that enforce quality before completion.
 
 ---
 
@@ -41,8 +39,9 @@ Every step produces traceable artifacts — decisions with provenance, changes w
 
 ### For Engineering Teams
 
-- **Decision Log** — every architectural choice recorded with alternatives considered, reasoning, and who decided (human vs AI)
+- **Decision Log** — every architectural choice recorded with alternatives, reasoning, and who decided (human vs AI)
 - **Change Traceability** — every file modification linked to a task, decision, and reasoning trace
+- **Project Guidelines** — scoped coding standards and conventions automatically injected into every task context
 - **Validation Gates** — tests, lint, and secret scanning run automatically before task completion
 - **Compound Learning** — lessons from past projects inform future ones across your organization
 
@@ -52,9 +51,9 @@ Every step produces traceable artifacts — decisions with provenance, changes w
 ### For Engineering Leaders
 
 - **Full Audit Trail** — answer "why was this built this way?" at any time
-- **Risk Visibility** — 5-dimensional risk assessment with severity, likelihood, and mitigation plans
+- **Risk Visibility** — 5-dimensional risk assessment with severity, likelihood, and mitigation tracking
 - **Resumability** — interrupt and resume at any point; state persists in structured JSON
-- **Multi-Agent Support** — multiple AI agents working in parallel with conflict detection
+- **Multi-Agent Support** — parallel AI agents with dependency awareness and conflict detection
 
 </td>
 </tr>
@@ -65,52 +64,62 @@ Every step produces traceable artifacts — decisions with provenance, changes w
 ## How It Works
 
 ```
-                    ┌─────────────────────────────────────────┐
-                    │              USER INTENT                 │
-                    │         "Add JWT auth to API"            │
-                    └──────────────┬──────────────────────────┘
-                                   │
-                    ┌──────────────▼──────────────────────────┐
-                    │  /idea  →  /discover  →  /plan          │
-                    │  Stage ideas, explore options, assess    │
-                    │  risks, decompose into task graph        │
-                    └──────────────┬──────────────────────────┘
-                                   │
-              ┌────────────────────┼────────────────────┐
-              │                    │                     │
-      ┌───────▼───────┐   ┌───────▼───────┐   ┌────────▼──────┐
-      │   Task T-001  │   │   Task T-002  │   │   Task T-003  │
-      │  Setup models │   │  JWT middleware│   │  Auth routes  │
-      │  depends: []  │   │  depends:[001]│   │  depends:[002]│
-      └───────┬───────┘   └───────┬───────┘   └────────┬──────┘
-              │                    │                     │
-              ▼                    ▼                     ▼
-        Code + Decide        Code + Decide         Code + Decide
-        Record changes       Record changes        Record changes
-        Run gates            Run gates              Run gates
-              │                    │                     │
-              └────────────────────┼────────────────────┘
-                                   │
-                    ┌──────────────▼──────────────────────────┐
-                    │  /compound  →  Lessons extracted         │
-                    │  Patterns, mistakes, validated decisions  │
-                    └─────────────────────────────────────────┘
+                     ┌──────────────────────────────────────┐
+                     │            USER INTENT                │
+                     │       "Add JWT auth to API"           │
+                     └───────────────┬──────────────────────┘
+                                     │
+                     ┌───────────────▼──────────────────────┐
+                     │   /idea  →  /discover  →  /plan      │
+                     │   Stage ideas, explore options,       │
+                     │   assess risks, build task graph      │
+                     └───────────────┬──────────────────────┘
+                                     │
+                     ┌───────────────▼──────────────────────┐
+                     │   /guideline  →  Set standards        │
+                     │   "Use Repository Pattern" [backend]  │
+                     │   "All endpoints need auth" [api]     │
+                     │   Scoped, weighted (must/should/may)  │
+                     └───────────────┬──────────────────────┘
+                                     │
+               ┌─────────────────────┼─────────────────────┐
+               │                     │                      │
+       ┌───────▼──────┐     ┌───────▼──────┐     ┌────────▼─────┐
+       │  Task T-001  │     │  Task T-002  │     │  Task T-003  │
+       │ Setup models │     │ JWT middleware│     │ Auth routes  │
+       │ depends: []  │     │ depends:[001]│     │ depends:[002]│
+       └───────┬──────┘     └───────┬──────┘     └────────┬─────┘
+               │                     │                      │
+               ▼                     ▼                      ▼
+         Code + Decide         Code + Decide          Code + Decide
+         + Guidelines ✓        + Guidelines ✓         + Guidelines ✓
+         Record changes        Record changes         Record changes
+         Run gates             Run gates               Run gates
+               │                     │                      │
+               └─────────────────────┼─────────────────────┘
+                                     │
+                     ┌───────────────▼──────────────────────┐
+                     │   /compound  →  Lessons extracted     │
+                     │   Patterns, insights, validated       │
+                     │   decisions — feed the next project   │
+                     └──────────────────────────────────────┘
 ```
 
 ---
 
 ## Key Differentiators
 
-| Capability | Traditional AI Coding | Forge |
-|:-----------|:---------------------:|:-----:|
-| Tracks **why** code changed | - | **Yes** — reasoning traces on every change |
-| Records architectural decisions | - | **Yes** — with provenance and alternatives |
-| Validates before completion | - | **Yes** — configurable gates (test, lint, secrets) |
-| Learns across projects | - | **Yes** — compound learning system |
-| Supports parallel AI agents | - | **Yes** — with conflict detection |
-| Enforces structured workflow | - | **Yes** — contract-first pipeline |
-| Hierarchical idea staging | - | **Yes** — ideas mature before becoming tasks |
-| Risk assessment built-in | - | **Yes** — 5D risk + feasibility analysis |
+| Capability | Traditional AI Coding | With Forge |
+|:-----------|:---------------------:|:----------:|
+| Tracks **why** code changed | — | Reasoning traces on every change |
+| Records architectural decisions | — | Provenance, alternatives, confidence |
+| Validates before completion | — | Configurable gates (test, lint, secrets) |
+| Learns across projects | — | Compound learning system |
+| Supports parallel AI agents | — | Conflict detection + dependency DAG |
+| Project-wide coding standards | — | Scoped guidelines injected into task context |
+| Enforces structured workflow | — | Contract-first pipeline |
+| Hierarchical idea staging | — | Ideas mature before becoming tasks |
+| Risk assessment built-in | — | 5D risk + feasibility analysis |
 
 ---
 
@@ -124,15 +133,16 @@ git clone https://github.com/ForgePrime/forge.git
 /idea Add user authentication            # Stage an idea
 /discover I-001                           # Explore options, assess risks
 /plan I-001                               # Create task graph (draft → approve)
-/next                                     # Execute first task with full traceability
+/guideline Use Repository Pattern --scope backend  # Set coding standards
+/next                                     # Execute first task (guidelines auto-loaded)
 /status                                   # Project dashboard
 ```
 
-For existing codebases, run `/onboard` first to import project knowledge.
+For existing codebases, run **`/onboard`** first to import project knowledge.
 
 ---
 
-## Architecture at a Glance
+## Architecture
 
 ```
 forge/
@@ -142,7 +152,7 @@ forge/
 └── forge_output/   Runtime state (per-project JSON, gitignored)
 ```
 
-**Design principle:** Python handles I/O and validation. The LLM handles judgment and code generation. The boundary is strict — Python never decides *what* to change, and the LLM never writes state directly.
+**Design principle:** Python handles I/O and validation. The LLM handles judgment and code generation. The boundary is strict — Python never decides *what* to change, the LLM never writes state directly.
 
 ---
 
@@ -150,8 +160,8 @@ forge/
 
 Forge ships with deep analysis capabilities adapted from [Deep-Process](https://github.com/Deep-Process/deep-process):
 
-| Skill | What It Does |
-|:------|:-------------|
+| Skill | Purpose |
+|:------|:--------|
 | **deep-explore** | Structured option exploration with consequence tracing |
 | **deep-risk** | 5-dimensional risk assessment with cascade analysis |
 | **deep-feasibility** | 10-dimension feasibility study with GO/NO-GO verdict |
@@ -159,7 +169,7 @@ Forge ships with deep analysis capabilities adapted from [Deep-Process](https://
 | **deep-verify** | Artifact verification with impossibility pattern matching |
 | **deep-requirements** | Requirements extraction and contradiction checking |
 
-These are invoked automatically during `/discover` or manually as needed. All findings flow into the decision log with full provenance.
+Invoked automatically via `/discover` or manually as needed. All findings flow into the decision log with full provenance.
 
 ---
 
@@ -171,15 +181,15 @@ These are invoked automatically during `/discover` or manually as needed. All fi
 
 ---
 
-## Contributing
-
-We welcome contributions. See the [contributing guide](https://github.com/ForgePrime/forge/blob/main/CONTRIBUTING.md) for details.
+## Get Involved
 
 - **Report issues** — [GitHub Issues](https://github.com/ForgePrime/forge/issues)
 - **Discuss ideas** — [GitHub Discussions](https://github.com/ForgePrime/forge/discussions)
+- **Contribute** — see the [contributing guide](https://github.com/ForgePrime/forge/blob/main/CONTRIBUTING.md)
 
 ---
 
 <p align="center">
+  <img src="https://raw.githubusercontent.com/ForgePrime/.github/main/assets/ico.png" alt="ForgePrime" width="32"/><br/>
   <sub>Built with precision. Every change has a reason.</sub>
 </p>
