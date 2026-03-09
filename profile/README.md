@@ -31,6 +31,14 @@ Every step produces auditable artifacts — decisions with provenance, changes w
 
 ---
 
+## Repositories
+
+| | Repository | Description | Status |
+|:-:|:-----------|:------------|:------:|
+| <a href="https://github.com/ForgePrime/forge"><img src="https://raw.githubusercontent.com/ForgePrime/forge/main/img/ico.png" alt="Forge" width="28"/></a> | [**forge**](https://github.com/ForgePrime/forge) | Core orchestrator — pipeline, decisions, changes, gates, learning | Active |
+
+---
+
 ## What Forge Delivers
 
 <table>
@@ -170,14 +178,6 @@ Forge ships with deep analysis capabilities adapted from [Deep-Process](https://
 | **deep-requirements** | Requirements extraction and contradiction checking |
 
 Invoked automatically via `/discover` or manually as needed. All findings flow into the decision log with full provenance.
-
----
-
-## Repositories
-
-| | Repository | Description | Status |
-|:-:|:-----------|:------------|:------:|
-| <a href="https://github.com/ForgePrime/forge"><img src="https://raw.githubusercontent.com/ForgePrime/forge/main/img/ico.png" alt="Forge" width="28"/></a> | [**forge**](https://github.com/ForgePrime/forge) | Core orchestrator — pipeline, decisions, changes, gates, learning | Active |
 
 ---
 
